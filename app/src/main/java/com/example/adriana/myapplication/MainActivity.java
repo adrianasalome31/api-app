@@ -6,7 +6,7 @@ import android.util.Log;
 
 import com.example.adriana.myapplication.Api.Api;
 import com.example.adriana.myapplication.Api.ApiInterface;
-import com.example.adriana.myapplication.models.Persona;
+import com.example.adriana.myapplication.models.Student;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -31,26 +31,26 @@ public class MainActivity extends AppCompatActivity {
 
         ApiInterface apiInterface = retrofit.create(ApiInterface.class);
 
-        Persona persona = new Persona();
-        persona.setNombre("Alejo");
-        persona.setApellido("Hernandez");
-        persona.setEdad(19);
+        Student student = new Student();
+        student.setName("Alejo");
+        student.setSurname("Hernandez");
+        student.setAge(19);
 
-        Call<Persona> personaCall = apiInterface.createPersona(persona);
-        personaCall.enqueue(new Callback<Persona>() {
+        Call<Student> studentCall = apiInterface.createStudent(student);
+        studentCall.enqueue(new Callback<Student>() {
             @Override
-            public void onResponse(Call<Persona> call, Response<Persona> response) {
+            public void onResponse(Call<Student> call, Response<Student> response) {
 
-                Log.i(TAG, response.body().toString());
+                Log.i(TAG, response.body().getName());
             }
 
             @Override
-            public void onFailure(Call<Persona> call, Throwable t) {
+            public void onFailure(Call<Student> call, Throwable t) {
 
             }
         });
 
-        Log.i(TAG,  apiInterface.getPersonas().request().url().toString());
+        Log.i(TAG,  apiInterface.getStudents().request().url().toString());
 
 
     }

@@ -1,6 +1,6 @@
 package com.example.adriana.myapplication.Api;
 
-import com.example.adriana.myapplication.models.Persona;
+import com.example.adriana.myapplication.models.Student;
 
 import java.util.List;
 
@@ -14,11 +14,11 @@ import retrofit2.http.POST;
 
  public interface ApiInterface {
 
-    @GET("personas")
-    Call<List<Persona>>getPersonas();
+    @GET("students")
+    Call<List<Student>>getStudents();
 
-    @POST("personas")
-    Call<Persona> createPersona(@Body Persona persona);
+    @POST("students")
+    Call<Student> createStudent(@Body Student student);
 
 
 
